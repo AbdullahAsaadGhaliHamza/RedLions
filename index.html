@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Lions - Iraq Issues Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #8B0000;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #33333380 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #22222280 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .disclaimer-banner {
+            background: linear-gradient(45deg, #FF4500, #8B0000);
+            color: #FFD700;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 20px #8B0000;
+            text-align: center;
+            animation: pulse-warning 3s infinite;
+        }
+
+        @keyframes pulse-warning {
+            0%, 100% { box-shadow: 0 0 20px #8B0000; }
+            50% { box-shadow: 0 0 30px #FF4500, 0 0 40px #8B0000; }
+        }
+
+        .header {
+            text-align: center;
+            border: 3px solid #8B0000;
+            background: linear-gradient(45deg, #000, #33333380);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 5px 5px 0px #8B0000;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        h1 {
+            color: #8B0000;
+            font-size: 28px;
+            text-shadow: 2px 2px 0px #FFD700;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #8B0000;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .navigation {
+            background: #8B0000;
+            padding: 10px;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #FFD700;
+        }
+
+        .nav-link {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            border-color: #FFD700;
+            background: #000;
+        }
+
+        .nav-link.active {
+            background: #FFD700;
+            color: #8B0000;
+            border-color: #FFD700;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-section {
+            background: #8B0000;
+            border: 2px solid #FFD700;
+            padding: 20px;
+            margin: 20px 0;
+            color: #FFD700;
+            border-radius: 5px;
+        }
+
+        .about-section h3 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .tower-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            margin: 40px 0;
+        }
+
+        .tower-title {
+            color: #8B0000;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0px #FFD700;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .level-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2px 0;
+        }
+
+        .level {
+            border: 3px solid #8B0000;
+            background: linear-gradient(135deg, #333, #111);
+            box-shadow: 0 0 15px #8B0000, inset 0 0 10px #333;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .level:hover {
+            box-shadow: 0 0 25px #8B0000, inset 0 0 15px #333;
+        }
+
+        .level-5 { 
+            width: 180px; 
+            height: 70px;
+            background: linear-gradient(135deg, #444, #222);
+        }
+        .level-4 { 
+            width: 280px; 
+            height: 80px;
+            background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+        }
+        .level-3 { 
+            width: 380px; 
+            height: 90px;
+            background: linear-gradient(135deg, #333, #111);
+        }
+        .level-2 { 
+            width: 480px; 
+            height: 100px;
+            background: linear-gradient(135deg, #2a2a2a, #0a0a0a);
+        }
+        .level-1 { 
+            width: 580px; 
+            height: 110px;
+            background: linear-gradient(135deg, #222, #000);
+        }
+
+        .level-header {
+            background: #8B0000;
+            color: #FFD700;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .level-header:hover {
+            background: #A00000;
+            text-shadow: 0 0 10px #FFD700;
+        }
+
+        .rooms-container {
+            display: none;
+            width: 100%;
+            max-width: 900px;
+            margin: 15px auto;
+            padding: 20px;
+            background: linear-gradient(45deg, #333, #111);
+            border: 2px solid #8B0000;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+
+        .rooms-container.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .room {
+            border: 1px solid #8B0000;
+            background: #222;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .room:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 2px 2px 5px #8B0000;
+        }
+
+        .room h4 {
+            color: #8B0000;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .room p {
+            color: #BBB;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .room-value {
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            background: #FFD700;
+            color: #000;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow: hidden;
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #333, #111);
+            border: 3px solid #8B0000;
+            margin: 20px;
+            height: calc(100vh - 40px);
+            box-shadow: 5px 5px 15px #8B0000;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            background: #8B0000;
+            color: #FFD700;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #FFD700;
+            min-height: 60px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .close {
+            color: #FFD700;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+        }
+
+        .close:hover {
+            color: #FFA500;
+        }
+
+        .modal-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #222;
+            border-right: 2px solid #8B0000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .sidebar h3 {
+            color: #8B0000;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .document-item {
+            border: 1px solid #8B0000;
+            background: #333;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .document-item:hover {
+            background: #444;
+            transform: translateX(5px);
+        }
+
+        .document-item.selected {
+            background: #8B0000;
+            color: #FFD700;
+        }
+
+        .document-item h4 {
+            color: #8B0000;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .document-item.selected h4 {
+            color: #FFD700;
+        }
+
+        .document-item p {
+            color: #BBB;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .document-item.selected p {
+            color: #FFF;
+        }
+
+        .viewer-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #111;
+        }
+
+        .viewer-controls {
+            background: #8B0000;
+            color: #FFD700;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #FFD700;
+        }
+
+        .viewer-controls button {
+            background: #FFD700;
+            color: #8B0000;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .viewer-controls button:hover {
+            background: #FFA500;
+            transform: translateY(-1px);
+        }
+
+        .pdf-container {
+            flex: 1;
+            position: relative;
+            background: #FFF;
+            overflow: hidden;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #FFF;
+        }
+
+        .loading-state {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #8B0000;
+            z-index: 10;
+        }
+
+        .loading-spinner {
+            border: 4px solid #333;
+            border-top: 4px solid #8B0000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .placeholder-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #8B0000;
+        }
+
+        .placeholder-message h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .error-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #8B0000;
+            background: #222;
+            padding: 30px;
+            border: 2px solid #8B0000;
+            border-radius: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #8B0000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            margin-top: 40px;
+            border-radius: 5px;
+        }
+
+        .under-construction {
+            background: #8B0000;
+            color: #FFD700;
+            padding: 5px 10px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+            border: 2px solid #FFD700;
+            animation: blink 2s infinite;
+            border-radius: 3px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 10px;
+                height: calc(100vh - 20px);
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-height: 200px;
+                border-right: none;
+                border-bottom: 2px solid #8B0000;
+            }
+
+            .level-1, .level-2, .level-3, .level-4, .level-5 {
+                width: 90%;
+                min-width: 200px;
+            }
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="disclaimer-banner">
+            <strong>⚠️ INDEPENDENT RESEARCH PROJECT ⚠️</strong><br>
+            Not affiliated with any government entity or official organization. Educational/research purposes only.
+        </div>
+
+        <div class="header">
+            <div class="logo"><img src="Logo.png"></div>
+            <h1>RED LIONS PROJECT</h1>
+            <p class="subtitle">Independent Research on Iraq's Development Challenges</p>
+            <div class="under-construction">*** WORK IN PROGRESS ***</div>
+        </div>
+
+        <div class="navigation">
+            <span class="nav-link active" onclick="showSection('home')">HOME</span>
+            <span class="nav-link" onclick="showSection('about')">ABOUT</span>
+            <span class="nav-link" onclick="showSection('tower')">BABYLON TOWER</span>
+        </div>
+
+        <!-- HOME Section -->
+        <div id="home-section" class="section active">
+            <div class="about-section">
+                <h3>PROJECT OVERVIEW</h3>
+                <p>The Red Lions Project is an independent research initiative focused on analyzing Iraq's development challenges and potential solutions. This comprehensive platform demonstrates modern web development capabilities while showcasing institutional document management best practices.</p>
+                <br>
+                <p><strong>Key Features:</strong> Professional-quality document management system, responsive design patterns, and scalable web architecture concepts.</p>
+                <br>
+                <p><strong>Purpose:</strong> Educational demonstration of government-style portal design and efficient organizational workflow concepts.</p>
+            </div>
+        </div>
+
+        <!-- ABOUT Section -->
+        <div id="about-section" class="section">
+            <div class="about-section">
+                <h3>ABOUT THE PROJECT</h3>
+                <p><strong>Research Focus:</strong> This platform represents extensive independent research and analysis showcasing potential efficiency concepts for institutional workflows and document management systems.</p>
+                <br>
+                <p><strong>Technical Demonstrations:</strong></p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Professional Institutional Portal Architecture Concepts</li>
+                    <li>Scalable Document Management System Demonstrations</li>
+                    <li>Security-Focused Interface Design Pattern Examples</li>
+                    <li>Professional-Quality Responsive Development Techniques</li>
+                    <li>Modern Full-Stack Web Technology Implementation</li>
+                </ul>
+                <br>
+                <p><strong>📄 MIT Licensed</strong> - Free for use, modification, and distribution. No proprietary claims or restrictions.</p>
+                <br>
+                <p><strong>Development Goal:</strong> Showcase modern web development methodologies and demonstrate potential improvements for institutional document processing and workflow management.</p>
+            </div>
+        </div>
+
+        <!-- TOWER Section -->
+        <div id="tower-section" class="section">
+            <div class="tower-container" id="tower">
+                <h2 class="tower-title">🏛️ THE BABYLON TOWER OF ISSUES 🏛️</h2>
+                
+                <!-- Priority Level V -->
+                <div class="level-container">
+                    <div class="level level-5">
+                        <div class="level-header" onclick="toggleLevel(5)">
+                            PRIORITY LEVEL V - STRATEGIC ANALYSIS
+                        </div>
+                    </div>
+                    <div class="rooms-container" id="level5">
+                        <div class="rooms-grid">
+                            <div class="room" onclick="openModal('corruption')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏛️ Government Corruption</h4>
+                                <p>Analysis of corruption issues and transparency solutions</p>
+                            </div>
+                            <div class="room" onclick="openModal('policy')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>📋 Policy Reform</h4>
+                                <p>Recommended policy changes and implementation strategies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority Level IV -->
+                <div class="level-container">
+                    <div class="level level-4">
+                        <div class="level-header" onclick="toggleLevel(4)">
+                            PRIORITY LEVEL IV - CRITICAL SYSTEMS
+                        </div>
+                    </div>
+                    <div class="rooms-container" id="level4">
+                        <div class="rooms-grid">
+                            <div class="room" onclick="openModal('security')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🛡️ National Security</h4>
+                                <p>Security challenges and stabilization measures</p>
+                            </div>
+                            <div class="room" onclick="openModal('terrorism')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>⚔️ Counter-Terrorism</h4>
+                                <p>Anti-terrorism strategies and community safety</p>
+                            </div>
+                            <div class="room" onclick="openModal('military')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏗️ Military Reform</h4>
+                                <p>Defense sector restructuring and modernization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority Level III -->
+                <div class="level-container">
+                    <div class="level level-3">
+                        <div class="level-header" onclick="toggleLevel(3)">
+                            PRIORITY LEVEL III - INFRASTRUCTURE
+                        </div>
+                    </div>
+                    <div class="rooms-container" id="level3">
+                        <div class="rooms-grid">
+                            <div class="room" onclick="openModal('electricity')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>⚡ Electricity Crisis</h4>
+                                <p>Power grid issues and energy solutions</p>
+                            </div>
+                            <div class="room" onclick="openModal('oil')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🛢️ Oil Sector</h4>
+                                <p>Oil industry challenges and diversification</p>
+                            </div>
+                            <div class="room" onclick="openModal('jobs')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>💼 Unemployment</h4>
+                                <p>Job creation strategies and economic opportunities</p>
+                            </div>
+                            <div class="room" onclick="openModal('banking')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏦 Financial System</h4>
+                                <p>Banking reform and monetary policy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority Level II -->
+                <div class="level-container">
+                    <div class="level level-2">
+                        <div class="level-header" onclick="toggleLevel(2)">
+                            PRIORITY LEVEL II - PUBLIC SERVICES
+                        </div>
+                    </div>
+                    <div class="rooms-container" id="level2">
+                        <div class="rooms-grid">
+                            <div class="room" onclick="openModal('healthcare')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏥 Healthcare System</h4>
+                                <p>Medical infrastructure and public health challenges</p>
+                            </div>
+                            <div class="room" onclick="openModal('education')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>📚 Education Reform</h4>
+                                <p>Educational system improvements and literacy programs</p>
+                            </div>
+                            <div class="room" onclick="openModal('water')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>💧 Water Crisis</h4>
+                                <p>Water scarcity solutions and sanitation systems</p>
+                            </div>
+                            <div class="room" onclick="openModal('housing')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏠 Housing Crisis</h4>
+                                <p>Urban planning and residential development</p>
+                            </div>
+                            <div class="room" onclick="openModal('transport')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🚌 Transportation</h4>
+                                <p>Public transport and road infrastructure</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Priority Level I -->
+                <div class="level-container">
+                    <div class="level level-1">
+                        <div class="level-header" onclick="toggleLevel(1)">
+                            PRIORITY LEVEL I - SOCIAL DEVELOPMENT
+                        </div>
+                    </div>
+                    <div class="rooms-container" id="level1">
+                        <div class="rooms-grid">
+                            <div class="room" onclick="openModal('sectarian')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>⚖️ Sectarian Tensions</h4>
+                                <p>Religious and ethnic reconciliation strategies</p>
+                            </div>
+                            <div class="room" onclick="openModal('youth')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>👨‍🎓 Youth Issues</h4>
+                                <p>Youth engagement and opportunity creation</p>
+                            </div>
+                            <div class="room" onclick="openModal('women')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>👩 Women's Rights</h4>
+                                <p>Gender equality and women's participation</p>
+                            </div>
+                            <div class="room" onclick="openModal('refugees')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🚶‍♂️ Displacement</h4>
+                                <p>Refugee integration and internal displacement</p>
+                            </div>
+                            <div class="room" onclick="openModal('media')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>📺 Media Freedom</h4>
+                                <p>Press freedom and information access</p>
+                            </div>
+                            <div class="room" onclick="openModal('culture')">
+                                <div class="room-value">PUBLIC</div>
+                                <h4>🏛️ Cultural Heritage</h4>
+                                <p>Preservation of Iraqi cultural identity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2016 Red Lions Project | Independent Research Initiative</p>
+            <p style="font-size: 12px; margin-top: 10px;">
+                "Advancing understanding through comprehensive analysis and technical innovation"
+            </p>
+            <p style="font-size: 11px; margin-top: 5px; color: #AAA;">
+                MIT Licensed Open Source Project - Available for institutional adoption and enhancement
+            </p>
+        </div>
+    </div>
+
+    <!-- Full-screen PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Document Viewer</div>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="sidebar">
+                    <h3>Available Documents</h3>
+                    <div id="documentList"></div>
+                </div>
+                <div class="viewer-area">
+                    <div class="viewer-controls" id="viewerControls" style="display: none;">
+                        <div>
+                            <span id="currentDocName">No document selected</span>
+                        </div>
+                        <div>
+                            <button onclick="downloadCurrent()">📥 Download</button>
+                            <button onclick="openInNewTab()">🔗 New Tab</button>
+                            <button onclick="refreshPdf()">🔄 Refresh</button>
+                        </div>
+                    </div>
+                    <div class="pdf-container" id="pdfContainer">
+                        <div class="placeholder-message">
+                            <h3>📄 Select a document to view</h3>
+                            <p>Choose from the available documents in the sidebar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPdfUrl = '';
+        let currentPdfName = '';
+        let currentIframe = null;
+
+        // Navigation functionality
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.add('active');
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+            
+            // If showing tower section, trigger animation
+            if (sectionName === 'tower') {
+                setTimeout(() => {
+                    animateTower();
+                }, 100);
+            }
+        }
+
+        function animateTower() {
+            const levels = document.querySelectorAll('.level-container');
+            levels.forEach((level, index) => {
+                level.style.opacity = '0';
+                level.style.transform = 'translateY(50px)';
+                setTimeout(() => {
+                    level.style.transition = 'all 0.6s ease-out';
+                    level.style.opacity = '1';
+                    level.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        const pdfDatabase = {
+            'electricity': [
+                {
+                    title: 'Power Grid Analysis 2024',
+                    description: 'Comprehensive analysis of Iraq\'s power infrastructure',
+                    file: 'docs/electricity/PowerGrid-Analysis.pdf'
+                },
+                {
+                    title: 'Renewable Energy Plan',
+                    description: 'Strategic roadmap for solar and wind energy integration',
+                    file: 'docs/electricity/Renewable-Energy.pdf'
+                },
+                {
+                    title: 'Emergency Power Solutions',
+                    description: 'Short-term electricity shortage solutions',
+                    file: 'docs/electricity/emergency-solutions.pdf'
+                }
+            ],
+            'healthcare': [
+                {
+                    title: 'Healthcare Infrastructure Report',
+                    description: 'Hospital capacity and medical equipment analysis',
+                    file: 'docs/healthcare/HealthInfrastructure-strategy.pdf'
+                },
+                {
+                    title: 'Medical Personnel Strategy',
+                    description: 'Plan to address brain drain and develop local expertise',
+                    file: 'docs/healthcare/personnel-strategy.pdf'
+                }
+            ],
+            'water': [
+                {
+                    title: 'Water Crisis Assessment',
+                    description: 'Analysis of water scarcity and infrastructure needs',
+                    file: 'docs/water/crisis-assessment.pdf'
+                }
+            ],
+            'corruption': [
+                {
+                    title: 'Transparency Index 2024',
+                    description: 'Annual corruption assessment across institutions',
+                    file: 'docs/corruption/transparency-report.pdf'
+                }
+            ],
+            'security': [
+                {
+                    title: 'National Security Assessment',
+                    description: 'Current threats and strategic responses',
+                    file: 'docs/security/security-assessment.pdf'
+                }
+            ],
+            'oil': [
+                {
+                    title: 'Oil Sector Modernization',
+                    description: 'Infrastructure upgrades and technology improvements',
+                    file: 'docs/oil/sector-modernization.pdf'
+                }
+            ],
+            'education': [
+                {
+                    title: 'Education Reform Strategy',
+                    description: 'Comprehensive education system improvements',
+                    file: 'docs/education/reform-strategy.pdf'
+                }
+            ],
+            'housing': [
+                {
+                    title: 'Housing Crisis Analysis',
+                    description: 'Urban planning and residential development',
+                    file: 'docs/housing/crisis-analysis.pdf'
+                }
+            ],
+            'transport': [
+                {
+                    title: 'Transport Infrastructure Plan',
+                    description: 'Public transport and road development',
+                    file: 'docs/transport/infrastructure-plan.pdf'
+                }
+            ],
+            'jobs': [
+                {
+                    title: 'Employment Strategy',
+                    description: 'Job creation and economic opportunities',
+                    file: 'docs/jobs/employment-strategy.pdf'
+                }
+            ],
+            'banking': [
+                {
+                    title: 'Financial System Reform',
+                    description: 'Banking modernization and monetary policy',
+                    file: 'docs/banking/system-reform.pdf'
+                }
+            ],
+            'terrorism': [
+                {
+                    title: 'Counter-Terrorism Framework',
+                    description: 'National security and anti-terrorism measures',
+                    file: 'docs/terrorism/counter-framework.pdf'
+                }
+            ],
+            'military': [
+                {
+                    title: 'Military Modernization',
+                    description: 'Defense sector restructuring plan',
+                    file: 'docs/military/modernization.pdf'
+                }
+            ],
+            'policy': [
+                {
+                    title: 'Policy Reform Guidelines',
+                    description: 'Government policy modernization framework',
+                    file: 'docs/policy/reform-guidelines.pdf'
+                }
+            ],
+            'sectarian': [
+                {
+                    title: 'National Reconciliation Plan',
+                    description: 'Inter-community dialogue and unity programs',
+                    file: 'docs/sectarian/reconciliation-plan.pdf'
+                }
+            ],
+            'youth': [
+                {
+                    title: 'Youth Engagement Program',
+                    description: 'Programs for youth participation and development',
+                    file: 'docs/youth/engagement-program.pdf'
+                }
+            ],
+            'women': [
+                {
+                    title: 'Women Empowerment Initiative',
+                    description: 'Gender equality advancement strategies',
+                    file: 'docs/women/empowerment-initiative.pdf'
+                }
+            ],
+            'refugees': [
+                {
+                    title: 'Displacement Solutions',
+                    description: 'Refugee integration and support programs',
+                    file: 'docs/refugees/displacement-solutions.pdf'
+                }
+            ],
+            'media': [
+                {
+                    title: 'Media Freedom Report',
+                    description: 'Press freedom and information access evaluation',
+                    file: 'docs/media/freedom-report.pdf'
+                }
+            ],
+            'culture': [
+                {
+                    title: 'Cultural Heritage Plan',
+                    description: 'Iraqi cultural identity preservation strategies',
+                    file: 'docs/culture/heritage-plan.pdf'
+                }
+            ]
+        };
+
+        function toggleLevel(levelNum) {
+            const container = document.getElementById('level' + levelNum);
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i !== levelNum) {
+                    const otherContainer = document.getElementById('level' + i);
+                    if (otherContainer) {
+                        otherContainer.classList.remove('active');
+                    }
+                }
+            }
+            
+            if (container) {
+                container.classList.toggle('active');
+            }
+        }
+
+        function openModal(category) {
+            const modal = document.getElementById('pdfModal');
+            const title = document.getElementById('modalTitle');
+            const documentList = document.getElementById('documentList');
+            
+            const documents = pdfDatabase[category] || [];
+            
+            title.textContent = category.charAt(0).toUpperCase() + category.slice(1) + ' - Document Archive';
+            
+            // Clear previous documents
+            documentList.innerHTML = '';
+            
+            if (documents.length > 0) {
+                documents.forEach((doc, index) => {
+                    const docItem = document.createElement('div');
+                    docItem.className = 'document-item';
+                    docItem.onclick = () => loadDocument(doc.file, doc.title, docItem);
+                    docItem.innerHTML = `
+                        <h4>${doc.title}</h4>
+                        <p>${doc.description}</p>
+                    `;
+                    documentList.appendChild(docItem);
+                });
+            } else {
+                documentList.innerHTML = `
+                    <div style="padding: 20px; text-align: center; color: #8B0000;">
+                        <h4>Coming Soon</h4>
+                        <p>Documents for this category are being prepared</p>
+                    </div>
+                `;
+            }
+            
+            // Reset viewer
+            resetViewer();
+            modal.style.display = 'block';
+        }
+
+        function loadDocument(url, name, element) {
+            // Update selection
+            document.querySelectorAll('.document-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            if (element) {
+                element.classList.add('selected');
+            }
+
+            currentPdfUrl = url;
+            currentPdfName = name;
+
+            showLoading();
+            createPdfViewer(url, name);
+        }
+
+        function createPdfViewer(url, name) {
+            const container = document.getElementById('pdfContainer');
+            const controls = document.getElementById('viewerControls');
+            const docNameSpan = document.getElementById('currentDocName');
+
+            // Clear container
+            container.innerHTML = '';
+
+            // Create loading state
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'loading-state';
+            loadingDiv.innerHTML = `
+                <div class="loading-spinner"></div>
+                <h3>Loading PDF...</h3>
+                <p>Please wait while the document loads</p>
+            `;
+            container.appendChild(loadingDiv);
+
+            // Try multiple PDF viewing methods
+            tryPdfViewing(url, name, container, loadingDiv, controls, docNameSpan);
+        }
+
+        function tryPdfViewing(url, name, container, loadingDiv, controls, docNameSpan) {
+            // Method 1: Try direct iframe
+            const iframe = document.createElement('iframe');
+            iframe.className = 'pdf-viewer';
+            iframe.style.display = 'none';
+            iframe.src = url;
+            iframe.title = name;
+
+            let loaded = false;
+
+            // Success handler
+            iframe.onload = function() {
+                if (!loaded) {
+                    loaded = true;
+                    loadingDiv.remove();
+                    iframe.style.display = 'block';
+                    container.appendChild(iframe);
+                    controls.style.display = 'flex';
+                    docNameSpan.textContent = name;
+                    currentIframe = iframe;
+                }
+            };
+
+            // Try to load
+            container.appendChild(iframe);
+
+            // Fallback timer - if not loaded in 3 seconds, try Google Viewer
+            setTimeout(() => {
+                if (!loaded) {
+                    tryGoogleViewer(url, name, container, loadingDiv, controls, docNameSpan);
+                }
+            }, 3000);
+        }
+
+        function tryGoogleViewer(url, name, container, loadingDiv, controls, docNameSpan) {
+            // Remove direct iframe attempt
+            const existingIframe = container.querySelector('iframe');
+            if (existingIframe) {
+                existingIframe.remove();
+            }
+
+            // Try Google Docs Viewer
+            const googleViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}&embedded=true`;
+            
+            const iframe = document.createElement('iframe');
+            iframe.className = 'pdf-viewer';
+            iframe.style.display = 'none';
+            iframe.src = googleViewerUrl;
+            iframe.title = name;
+
+            let loaded = false;
+
+            iframe.onload = function() {
+                if (!loaded) {
+                    loaded = true;
+                    loadingDiv.remove();
+                    iframe.style.display = 'block';
+                    container.appendChild(iframe);
+                    controls.style.display = 'flex';
+                    docNameSpan.textContent = name + ' (via Google Viewer)';
+                    currentIframe = iframe;
+                }
+            };
+
+            container.appendChild(iframe);
+
+            // Final fallback after 5 more seconds
+            setTimeout(() => {
+                if (!loaded) {
+                    tryEmbedViewer(url, name, container, loadingDiv, controls, docNameSpan);
+                }
+            }, 5000);
+        }
+
+        function tryEmbedViewer(url, name, container, loadingDiv, controls, docNameSpan) {
+            // Remove Google viewer attempt
+            const existingIframe = container.querySelector('iframe');
+            if (existingIframe) {
+                existingIframe.remove();
+            }
+
+            // Try embed tag
+            const embed = document.createElement('embed');
+            embed.className = 'pdf-viewer';
+            embed.src = url;
+            embed.type = 'application/pdf';
+            embed.style.width = '100%';
+            embed.style.height = '100%';
+
+            let loaded = false;
+
+            // Give embed a chance
+            setTimeout(() => {
+                if (!loaded) {
+                    loaded = true;
+                    loadingDiv.remove();
+                    container.appendChild(embed);
+                    controls.style.display = 'flex';
+                    docNameSpan.textContent = name + ' (embed viewer)';
+                }
+            }, 2000);
+
+            // Final fallback - show manual options
+            setTimeout(() => {
+                if (container.querySelector('.loading-state')) {
+                    showManualOptions(name, url, container, controls);
+                }
+            }, 8000);
+        }
+
+        function showManualOptions(name, url, container, controls) {
+            container.innerHTML = `
+                <div class="error-message">
+                    <h3>📄 ${name}</h3>
+                    <p style="margin: 20px 0;">Choose how to view this document:</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px; max-width: 300px; margin: 0 auto;">
+                        <button onclick="openPdfInNewTab('${url}')" 
+                                style="background: #8B0000; color: #FFD700; border: 2px solid #FFD700; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                            🔗 Open in New Tab
+                        </button>
+                        
+                        <button onclick="downloadPdf('${url}', '${name}')" 
+                                style="background: #FFD700; color: #8B0000; border: 2px solid #8B0000; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                            📥 Download PDF
+                        </button>
+                        
+                        <button onclick="tryGoogleViewerDirect('${url}')" 
+                                style="background: #333; color: #FFD700; border: 2px solid #FFD700; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                            🔍 Google Viewer
+                        </button>
+                        
+                        <button onclick="retryPdfLoad('${url}', '${name}')" 
+                                style="background: #444; color: #FFF; border: 2px solid #888; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+                            🔄 Try Again
+                        </button>
+                    </div>
+                    
+                    <p style="font-size: 12px; color: #888; margin-top: 20px;">
+                        Some browsers block embedded PDFs for security reasons
+                    </p>
+                </div>
+            `;
+            
+            controls.style.display = 'flex';
+            document.getElementById('currentDocName').textContent = name;
+        }
+
+        // Helper functions for manual options
+        function openPdfInNewTab(url) {
+            window.open(url, '_blank');
+        }
+
+        function downloadPdf(url, name) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = name + '.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function tryGoogleViewerDirect(url) {
+            const googleUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(url)}`;
+            window.open(googleUrl, '_blank');
+        }
+
+        function retryPdfLoad(url, name) {
+            const selectedElement = document.querySelector('.document-item.selected');
+            loadDocument(url, name, selectedElement);
+        }
+
+        function showLoading() {
+            const controls = document.getElementById('viewerControls');
+            controls.style.display = 'none';
+        }
+
+        function resetViewer() {
+            const container = document.getElementById('pdfContainer');
+            const controls = document.getElementById('viewerControls');
+            
+            container.innerHTML = `
+                <div class="placeholder-message">
+                    <h3>📄 Select a document to view</h3>
+                    <p>Choose from the available documents in the sidebar</p>
+                </div>
+            `;
+            
+            controls.style.display = 'none';
+            currentPdfUrl = '';
+            currentPdfName = '';
+            currentIframe = null;
+            
+            document.querySelectorAll('.document-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+        }
+
+        function downloadCurrent() {
+            if (currentPdfUrl) {
+                const link = document.createElement('a');
+                link.href = currentPdfUrl;
+                link.download = currentPdfName + '.pdf';
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        function openInNewTab() {
+            if (currentPdfUrl) {
+                window.open(currentPdfUrl, '_blank');
+            }
+        }
+
+        function refreshPdf() {
+            if (currentPdfUrl && currentPdfName) {
+                const selectedElement = document.querySelector('.document-item.selected');
+                loadDocument(currentPdfUrl, currentPdfName, selectedElement);
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('pdfModal');
+            modal.style.display = 'none';
+            resetViewer();
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initialize website
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Red Lions Website Loaded Successfully');
+            
+            // Random blinking effect for rooms
+            setInterval(function() {
+                const elements = document.querySelectorAll('.room');
+                if (elements.length > 0) {
+                    const randomElement = elements[Math.floor(Math.random() * elements.length)];
+                    randomElement.style.animation = 'blink 0.5s';
+                    setTimeout(() => {
+                        randomElement.style.animation = '';
+                    }, 500);
+                }
+            }, 8000);
+        });
+
+        // Prevent iframe issues by ensuring proper cleanup
+        function cleanup() {
+            if (currentIframe) {
+                currentIframe.src = 'about:blank';
+                currentIframe = null;
+            }
+        }
+
+        // Add cleanup on page unload
+        window.addEventListener('beforeunload', cleanup);
+    </script>
+</body>
+</html>
